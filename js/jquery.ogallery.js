@@ -4,16 +4,17 @@
     var options = $.extend(defaults, options);
     var itemWidth, itemOuterWidth;
 
+    var $window = $(window);
     var $baseHTML = $([
       '<div class="ogallery">',
         '<div class="ogallery-arrow ogallery-arrow--prev"></div>',
         '<div class="ogallery-arrow ogallery-arrow--next"></div>',
-        '<div class="ogallery__slider"></div>',
+        '<div class="ogallery-slider"></div>',
       '</div>'].join(''));
 
     function setWidths() {
-      var ww = $(window).width();
-      var galleryWidth = $('.ogallery').innerWidth();
+      var ww = $window.width();
+      var galleryWidth = $baseHTML.innerWidth();
       var widthFactor = ww > 1020 ? 0.3 : ww > 480 ? 0.475 : 1;
       var outerWidthFactor = ww > 1020 ? 0.35 : ww > 480 ? 0.525 : 1;
 
@@ -33,15 +34,15 @@
       var originalClasses = $this.attr('class');
 
       $baseHTML.insertAfter($this).addClass(originalClasses);
-      $this.removeClass(originalClasses).addClass('ogallery__items')
+      $this.removeClass(originalClasses).addClass('ogallery-list')
         .find('li').addClass('ogallery-item')
         .find('img').addClass('ogallery-item__image')
         .end().end()
         .detach()
-        .appendTo($baseHTML.find('.ogallery__slider'));
+        .appendTo($baseHTML.find('.ogallery-slider'));
     });
 
-    var $list = $('.ogallery__items');
+    var $list = $('.ogallery-list');
     var $items = $('.ogallery-item');
 
     setWidths()
@@ -67,7 +68,7 @@
       });
     });
 
-    $(window).on('resize', function() {
+    $window.on('resize', function() {
       setWidths();
     });
   };

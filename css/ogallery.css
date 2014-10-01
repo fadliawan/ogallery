@@ -4,14 +4,14 @@
   width: 100%;
 }
 
-.ogallery__slider {
+.ogallery-slider {
   float: left;
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
-.ogallery__items {
+.ogallery-list {
   float: left;
   margin: 0;
   padding: 0;
@@ -22,8 +22,6 @@
 .ogallery-item {
   float: left;
   list-style: none;
-  margin-right: 20px;
-  width: 300px;
 }
 
 .ogallery-item__image {
