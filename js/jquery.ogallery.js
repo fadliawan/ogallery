@@ -14,8 +14,8 @@
     function setWidths() {
       var ww = $(window).width();
       var galleryWidth = $('.ogallery').innerWidth();
-      var widthFactor = ww > 1020 ? 0.3 : ww > 480 ? 0.5 : 1;
-      var outerWidthFactor = ww > 1020 ? 0.35 : ww > 480 ? 0.5 : 1;
+      var widthFactor = ww > 1020 ? 0.3 : ww > 480 ? 0.475 : 1;
+      var outerWidthFactor = ww > 1020 ? 0.35 : ww > 480 ? 0.525 : 1;
 
       itemWidth = widthFactor * galleryWidth;
       itemOuterWidth = outerWidthFactor * galleryWidth;
