@@ -34,11 +34,11 @@
       var originalClasses = $this.attr('class');
 
       $baseHTML.insertAfter($this).addClass(originalClasses);
-      $this.removeClass(originalClasses).addClass('ogallery-list')
+      $this.detach()
+        .removeClass(originalClasses).addClass('ogallery-list')
         .find('li').addClass('ogallery-item')
         .find('img').addClass('ogallery-item__image')
         .end().end()
-        .detach()
         .appendTo($baseHTML.find('.ogallery-slider'));
     });
 
