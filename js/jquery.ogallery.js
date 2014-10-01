@@ -9,15 +9,23 @@
         '<div class="ogallery-arrow ogallery-arrow--prev"></div>',
         '<div class="ogallery-arrow ogallery-arrow--next"></div>',
         '<div class="ogallery__slider"></div>',
-    '</div>'].join(''));
+      '</div>'].join(''));
 
     function setWidths() {
       var ww = $(window).width();
+      var galleryWidth = $('.ogallery').innerWidth();
       var widthFactor = ww > 1020 ? 0.3 : ww > 480 ? 0.5 : 1;
       var outerWidthFactor = ww > 1020 ? 0.35 : ww > 480 ? 0.5 : 1;
 
-      itemWidth = widthFactor * $('.ogallery').innerWidth();
-      itemOuterWidth = outerWidthFactor * $('.ogallery').innerWidth();
+      itemWidth = widthFactor * galleryWidth;
+      itemOuterWidth = outerWidthFactor * galleryWidth;
+
+      $items.css({
+        width: itemWidth,
+        marginRight: itemOuterWidth - itemWidth
+      });
+
+      return $list.css('left', -itemOuterWidth);
     }
 
     this.each(function() {
@@ -33,19 +41,14 @@
         .appendTo($baseHTML.find('.ogallery__slider'));
     });
 
-    setWidths();
+    var $list = $('.ogallery__items');
+    var $items = $('.ogallery-item');
 
-    $('.ogallery-item').css({
-      width: itemWidth,
-      marginRight: itemOuterWidth - itemWidth
-    });
-
-    $('.ogallery__items')
-      .css('left', -itemOuterWidth)
+    setWidths()
       .prepend($('.ogallery-item:last-child').detach());
 
     $('.ogallery-arrow--prev').on('click', function() {
-      $('.ogallery__items').animate({
+      $list.animate({
         'left': '+='+itemOuterWidth
       }, 'normal', 'linear', function() {
         $(this)
@@ -55,7 +58,7 @@
     });
 
     $('.ogallery-arrow--next').on('click', function() {
-      $('.ogallery__items').animate({
+      $list.animate({
         'left': '-='+itemOuterWidth
       }, 'normal', 'linear', function() {
         $(this)
@@ -66,14 +69,6 @@
 
     $(window).on('resize', function() {
       setWidths();
-
-      $('.ogallery-item').css({
-        width: itemWidth,
-        marginRight: itemOuterWidth - itemWidth
-      });
-
-      $('.ogallery__items')
-        .css('left', -itemOuterWidth);
     });
   };
 })(jQuery);
