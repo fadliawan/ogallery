@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>oGallery Example</title>
+  <link rel="stylesheet" href="css/ogallery.css">
+</head>
+<body>
+  <!-- Example markup -->
+  <ul class="gallery">
+    <li><img src="img/beach.jpg" alt="Beach"></li>
+    <li><img src="img/train.jpg" alt="Train"></li>
+    <li><img src="img/city.jpg" alt="City"></li>
+    <li><img src="img/traffic.jpg" alt="Traffic"></li>
+    <li><img src="img/beach-bw.jpg" alt="Beach BW"></li>
+  </ul>
+
+  <!-- Output markup
+  <div class="gallery ogallery">
+    <div class="ogallery-arrow ogallery-arrow--prev"></div>
+    <div class="ogallery-arrow ogallery-arrow--next"></div>
+    <div class="ogallery__slider">
+      <ul class="ogallery__items">
+        <li class="ogallery-item"><img class="ogallery-item__image" src="img/beach.jpg" alt="Beach"></li>
+        <li class="ogallery-item"><img class="ogallery-item__image" src="img/train.jpg" alt="Train"></li>
+        <li class="ogallery-item"><img class="ogallery-item__image" src="img/city.jpg" alt="City"></li>
+        <li class="ogallery-item"><img class="ogallery-item__image" src="img/traffic.jpg" alt="Traffic"></li>
+        <li class="ogallery-item"><img class="ogallery-item__image" src="img/beach-bw.jpg" alt="Beach BW"></li>
+      </ul>
+    </div>
+  </div>
+  -->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.ogallery.js"></script>
+  <script>
+    $('.gallery').oGallery();
+  </script>
+</body>
+</html>

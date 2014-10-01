@@ -1,0 +1,55 @@
+.ogallery {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ogallery__slider {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ogallery__items {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 3000px;
+}
+
+.ogallery-item {
+  float: left;
+  list-style: none;
+  margin-right: 20px;
+  width: 300px;
+}
+
+.ogallery-item__image {
+  width: 100%;
+}
+
+.ogallery-arrow {
+  background: black;
+  cursor: pointer;
+  height: 20px;
+  left: 10px;
+  position: absolute;
+  top: 45%;
+  width: 20px;
+  z-index: 100;
+}
+
+.ogallery-arrow--next {
+  left: auto;
+  right: 10px;
+}
+
+@media only screen and (min-width: 480px) {
+  /* Tablet portrait and mobile lanscape */
+}
+
+@media only screen and (min-width: 1020px) {
+  /* Tablet landscape and desktop */
+}
