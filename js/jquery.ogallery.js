@@ -1,6 +1,9 @@
 (function($) {
   $.fn.oGallery = function(options) {
-    var defaults = {};
+    var defaults = {
+      duration: 400
+    };
+
     var options = $.extend(defaults, options);
     var itemWidth, itemOuterWidth;
 
@@ -29,6 +32,24 @@
       return $list.css('left', -itemOuterWidth);
     }
 
+    function slide(direction) {
+      var operator, itemToSwap, actionToCall;
+
+      if (direction === 'left') {
+        operator = '+='; itemToSwap = 'last-child'; actionToCall = 'prepend';
+      } else {
+        operator = '-='; itemToSwap = 'first-child'; actionToCall = 'append';
+      }
+
+      $list.animate({
+        'left': operator+itemOuterWidth
+      }, options.duration, 'linear', function() {
+        $(this)
+          [actionToCall]($('.ogallery-item:'+itemToSwap).detach())
+          .css('left', -itemOuterWidth);
+      });
+    }
+
     this.each(function() {
       var $this = $(this);
       var originalClasses = $this.attr('class');
@@ -49,23 +70,11 @@
       .prepend($('.ogallery-item:last-child').detach());
 
     $('.ogallery-arrow--prev').on('click', function() {
-      $list.animate({
-        'left': '+='+itemOuterWidth
-      }, 'normal', 'linear', function() {
-        $(this)
-          .prepend($('.ogallery-item:last-child').detach())
-          .css('left', -itemOuterWidth);
-      });
+      slide('left');
     });
 
     $('.ogallery-arrow--next').on('click', function() {
-      $list.animate({
-        'left': '-='+itemOuterWidth
-      }, 'normal', 'linear', function() {
-        $(this)
-          .append($('.ogallery-item:first-child').detach())
-          .css('left', -itemOuterWidth);
-      });
+      slide('right');
     });
 
     $window.on('resize', function() {
