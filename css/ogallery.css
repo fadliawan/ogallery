@@ -29,7 +29,9 @@
 }
 
 .ogallery-arrow {
-  background: black;
+  background: url('img/arrows.png') no-repeat left top;
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
   cursor: pointer;
   height: 20px;
   left: 10px;
@@ -40,6 +42,7 @@
 }
 
 .ogallery-arrow--next {
+  background-position: left -20px;
   left: auto;
   right: 10px;
 }
